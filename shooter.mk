@@ -71,8 +71,7 @@ PRODUCT_COPY_FILES += \
 
 # GPS and Light
 PRODUCT_PACKAGES += \
-    gps.shooter \
-    lights.shooter
+    gps.shooter
 
 ## qcom/media
 PRODUCT_PACKAGES += \
