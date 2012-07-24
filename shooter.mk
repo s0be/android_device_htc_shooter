@@ -154,23 +154,38 @@ PRODUCT_COPY_FILES += \
     device/htc/shooter/firmware/fw_bcm4329.bin:system/vendor/firmware/fw_bcm4329.bin \
     device/htc/shooter/firmware/fw_bcm4329_apsta.bin:system/vendor/firmware/fw_bcm4329_apsta.bin
 
-# Prebuilt modules
-PRODUCT_COPY_FILES += \
-    device/htc/shooter/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko \
-	device/htc/shooter/prebuilt/kineto_gan.ko:system/lib/modules/kineto_gan.ko \
-	device/htc/shooter/prebuilt/msm-buspm-dev.ko:system/lib/modules/msm-buspm-dev.ko
-
 # misc
 PRODUCT_COPY_FILES += \
     device/htc/shooter/vold.fstab:system/etc/vold.fstab \
     device/htc/shooter/apns-conf.xml:system/etc/apns-conf.xml
 
-## HAX
-# PRODUCT_COPY_FILES += \
-#     device/htc/shooter/prebuilt/libcryp98.so:system/lib/libcryp98.so \
-#     device/htc/shooter/prebuilt/libdmtree.so:system/lib/libdmtree.so \
-#     device/htc/shooter/prebuilt/sequansd:system/bin/sequansd \
-#     device/htc/shooter/prebuilt/wimax-api.jar:system/framework/wimax-api.jar
+## Camera
+PRODUCT_COPY_FILES += \
+    device/htc/shooter/prebuilt/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so
+
+## WiMAX
+PRODUCT_COPY_FILES += \
+    device/htc/shooter/prebuilt/libcryp98.so:system/lib/libcryp98.so \
+    device/htc/shooter/prebuilt/libdmtree.so:system/lib/libdmtree.so \
+    device/htc/shooter/prebuilt/sequansd:system/bin/sequansd \
+    device/htc/shooter/prebuilt/wimax-api.jar:system/framework/wimax-api.jar \
+    device/htc/shooter/prebuilt/wimaxDumpKmsg:system/bin/wimaxDumpKmsg \
+    device/htc/shooter/prebuilt/wimaxDumpLogcat:system/bin/wimaxDumpLogcat \
+    device/htc/shooter/prebuilt/setWiMAXPropDaemond:system/bin/setWiMAXPropDaemond \
+    device/htc/shooter/prebuilt/wimax_mtd:system/bin/wimax_mtd \
+    device/htc/shooter/prebuilt/getWiMAXPropDaemond:system/bin/getWiMAXPropDaemond \
+    device/htc/shooter/prebuilt/wimaxDumpLastKmsg:system/bin/wimaxDumpLastKmsg \
+    device/htc/shooter/prebuilt/wimaxDhcpRenew:system/bin/wimaxDhcpRenew \
+    device/htc/shooter/prebuilt/wimaxDhcpRelease:system/bin/wimaxDhcpRelease \
+    device/htc/shooter/prebuilt/wimaxAddRoute:system/bin/wimaxAddRoute \
+    device/htc/shooter/prebuilt/wimaxFactoryReset:system/bin/wimaxFactoryReset \
+    device/htc/shooter/prebuilt/wimaxConfigInterface:system/bin/wimaxConfigInterface \
+    device/htc/shooter/prebuilt/DefaultTree.xml:system/etc/wimax/sequansd/DefaultTree.xml \
+    device/htc/shooter/prebuilt/sequansd_app.xml:system/etc/wimax/sequansd/sequansd_app.xml \
+    device/htc/shooter/prebuilt/wimaxDhcp.conf:system/etc/wimax/dhcp/wimaxDhcp.conf \
+    device/htc/shooter/prebuilt/libhtcdm.so:system/lib/libhtcdm.so \
+    device/htc/shooter/prebuilt/dmagent:system/bin/dmagent \
+    device/htc/shooter/prebuilt/wimaxDaemon:system/bin/wimaxDaemon
 
 $(call inherit-product-if-exists, vendor/htc/shooter/shooter-vendor.mk)
 
