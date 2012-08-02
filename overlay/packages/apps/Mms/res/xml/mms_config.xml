@@ -53,8 +53,10 @@
          via multi media message. -->
     <bool name="enableMultipartSMS">true</bool>
 
+    <bool name="enableSplitSMS">true</bool>
+
     <!-- Maximum length for message text. Use a value of -1
          to indicate default value -->
-    <int name="maxMessageTextSize">-1</int>
+    <int name="maxMessageTextSize">140</int>
 
 </mms_config>

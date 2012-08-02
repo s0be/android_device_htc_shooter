@@ -68,12 +68,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.cdma.home.operator.numeric=310120 \
 	ro.cdma.home.operator.alpha=Sprint
 
-## Goo.im properties
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.goo.developerid=agrabren \
-	ro.goo.version=8 \
-	ro.goo.rom=CM9-DevilToast
-
 ## misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
