@@ -39,24 +39,11 @@ PRODUCT_COPY_FILES += \
     device/htc/shooter/init.shooter.usb.rc:root/init.shooter.usb.rc \
     device/htc/shooter/ueventd.shooter.rc:root/ueventd.shooter.rc
 
-ifneq ($(KERNEL_VERSION),htc)
 PRODUCT_COPY_FILES += device/htc/shooter/init.shooter.rc:root/init.shooter.rc
-else
-PRODUCT_COPY_FILES += device/htc/shooter/init.shooter.htc.rc:root/init.shooter.rc
-endif
 
 # BCM4329 BT Firmware
 PRODUCT_COPY_FILES += \
     device/htc/msm8660-common/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd
-
-# Kernel Modules
-ifeq ($(KERNEL_VERSION),htc)
-PRODUCT_COPY_FILES += \
-    device/htc/shooter/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
-    device/htc/shooter/modules/sequans_sdio.ko:system/lib/modules/sequans_sdio.ko \
-    device/htc/shooter/modules/wimaxuart.ko:system/lib/modules/wimaxuart.ko \
-    device/htc/shooter/modules/wimaxdbg.ko:system/lib/modules/wimaxdbg.ko
-endif
 
 ## (2) Also get non-open-source specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/shooter/shooter-vendor.mk)
@@ -173,12 +160,29 @@ PRODUCT_COPY_FILES += \
     device/htc/shooter/vold.fstab:system/etc/vold.fstab \
     device/htc/shooter/apns-conf.xml:system/etc/apns-conf.xml
 
-## HAX
+## WiMAX
 PRODUCT_COPY_FILES += \
     device/htc/shooter/prebuilt/libcryp98.so:system/lib/libcryp98.so \
     device/htc/shooter/prebuilt/libdmtree.so:system/lib/libdmtree.so \
     device/htc/shooter/prebuilt/sequansd:system/bin/sequansd \
-    device/htc/shooter/prebuilt/wimax-api.jar:system/framework/wimax-api.jar
+    device/htc/shooter/prebuilt/wimax-api.jar:system/framework/wimax-api.jar \
+    device/htc/shooter/prebuilt/wimaxDumpKmsg:system/bin/wimaxDumpKmsg \
+    device/htc/shooter/prebuilt/wimaxDumpLogcat:system/bin/wimaxDumpLogcat \
+    device/htc/shooter/prebuilt/setWiMAXPropDaemond:system/bin/setWiMAXPropDaemond \
+    device/htc/shooter/prebuilt/wimax_mtd:system/bin/wimax_mtd \
+    device/htc/shooter/prebuilt/getWiMAXPropDaemond:system/bin/getWiMAXPropDaemond \
+    device/htc/shooter/prebuilt/wimaxDumpLastKmsg:system/bin/wimaxDumpLastKmsg \
+    device/htc/shooter/prebuilt/wimaxDhcpRenew:system/bin/wimaxDhcpRenew \
+    device/htc/shooter/prebuilt/wimaxDhcpRelease:system/bin/wimaxDhcpRelease \
+    device/htc/shooter/prebuilt/wimaxAddRoute:system/bin/wimaxAddRoute \
+    device/htc/shooter/prebuilt/wimaxFactoryReset:system/bin/wimaxFactoryReset \
+    device/htc/shooter/prebuilt/wimaxConfigInterface:system/bin/wimaxConfigInterface \
+    device/htc/shooter/prebuilt/DefaultTree.xml:system/etc/wimax/sequansd/DefaultTree.xml \
+    device/htc/shooter/prebuilt/sequansd_app.xml:system/etc/wimax/sequansd/sequansd_app.xml \
+    device/htc/shooter/prebuilt/wimaxDhcp.conf:system/etc/wimax/dhcp/wimaxDhcp.conf \
+    device/htc/shooter/prebuilt/libhtcdm.so:system/lib/libhtcdm.so \
+    device/htc/shooter/prebuilt/dmagent:system/bin/dmagent \
+    device/htc/shooter/prebuilt/wimaxDaemon:system/bin/wimaxDaemon
 
 $(call inherit-product-if-exists, vendor/htc/shooter/shooter-vendor.mk)
 
