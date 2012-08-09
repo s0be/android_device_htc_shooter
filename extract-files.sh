@@ -123,7 +123,6 @@ PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/libaudioalsa.so:/system/lib/libaudioalsa.so \\
     vendor/htc/__DEVICE__/proprietary/libaudcal.so:/system/lib/libaudcal.so \\
     vendor/htc/__DEVICE__/proprietary/libacdbmapper.so:system/lib/libacdbmapper.so \\
-    vendor/htc/__DEVICE__/proprietary/libacdbloader.so:system/lib/libacdbloader.so \\
     vendor/htc/__DEVICE__/proprietary/libC2D2.so:/system/lib/libC2D2.so \\
     vendor/htc/__DEVICE__/proprietary/libcamerapp.so:/system/lib/libcamerapp.so \\
     vendor/htc/__DEVICE__/proprietary/libcameraSP.so:/system/lib/libcameraSP.so \\
@@ -174,7 +173,7 @@ PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/sound8x60:/system/bin/sound8x60 \\
     vendor/htc/__DEVICE__/proprietary/3D_calibration:/system/bin/3D_calibration \\
     vendor/htc/__DEVICE__/proprietary/3D_calibration_main:/system/bin/3D_calibration_main
-
+#    vendor/htc/__DEVICE__/proprietary/libacdbloader.so:system/lib/libacdbloader.so \\
 #    vendor/htc/__DEVICE__/proprietary/htc_ebdlogd:/system/bin/htc_ebdlogd \\
 #    vendor/htc/__DEVICE__/proprietary/mpdecision:/system/bin/mpdecision \\
 #    vendor/htc/__DEVICE__/proprietary/thermald:system/bin/thermald \\
