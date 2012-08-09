@@ -19,17 +19,13 @@ DEVICE=shooter
 mkdir -p ../../../vendor/htc/$DEVICE/proprietary
 
 adb pull /system/bin/charging ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/htc_ebdlogd ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/bin/htcbatt ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/bin/load-modem.sh ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/mpdecision ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/bin/netmgrd ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/bin/qmuxd ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/bin/thermald ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/xbin/wireless_modem ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libaudioalsa.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libaudcal.so ../../../vendor/htc/$DEVICE/proprietary
-adb pull /system/lib/libacdbloader.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libacdbmapper.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libC2D2.so ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/lib/libcamerapp.so ../../../vendor/htc/$DEVICE/proprietary
@@ -82,6 +78,13 @@ adb pull /system/bin/sound8x60 ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/bin/3D_calibration ../../../vendor/htc/$DEVICE/proprietary
 adb pull /system/bin/3D_calibration_main ../../../vendor/htc/$DEVICE/proprietary
 
+# These aren't included in the not 100% stock ICS base I'm building off of.  They
+# May be necessary, but I'm just dropping them for now.
+adb pull /system/bin/htc_ebdlogd ../../../vendor/htc/$DEVICE/proprietary
+adb pull /system/bin/mpdecision ../../../vendor/htc/$DEVICE/proprietary
+adb pull /system/bin/thermald ../../../vendor/htc/$DEVICE/proprietary
+adb pull /system/lib/libacdbloader.so ../../../vendor/htc/$DEVICE/proprietary
+
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g > ../../../vendor/htc/$DEVICE/$DEVICE-vendor-blobs.mk
 # Copyright (C) 2010 The Android Open Source Project
 #
@@ -103,20 +106,18 @@ adb pull /system/bin/3D_calibration_main ../../../vendor/htc/$DEVICE/proprietary
 PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/camera.default.so:obj/lib/hw/camera.default.so \\
     vendor/htc/__DEVICE__/proprietary/libaudioalsa.so:obj/lib/libaudioalsa.so \\
-    vendor/htc/__DEVICE__/proprietary/libacdbloader.so:obj/lib/libacdbloader.so \\
     vendor/htc/__DEVICE__/proprietary/libacdbmapper.so:obj/lib/libacdbmapper.so \\
     vendor/htc/__DEVICE__/proprietary/libv8.so:obj/lib/libv8.so
     
+#    vendor/htc/__DEVICE__/proprietary/libacdbloader.so:obj/lib/libacdbloader.so \\
+
 # All the blobs necessary for shooter
 PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/charging:/system/bin/charging \\
-    vendor/htc/__DEVICE__/proprietary/htc_ebdlogd:/system/bin/htc_ebdlogd \\
     vendor/htc/__DEVICE__/proprietary/htcbatt:/system/bin/htcbatt \\
     vendor/htc/__DEVICE__/proprietary/load-modem.sh:/system/bin/load-modem.sh \\
-    vendor/htc/__DEVICE__/proprietary/mpdecision:/system/bin/mpdecision \\
     vendor/htc/__DEVICE__/proprietary/netmgrd:/system/bin/netmgrd \\
     vendor/htc/__DEVICE__/proprietary/qmuxd:/system/bin/qmuxd \\
-    vendor/htc/__DEVICE__/proprietary/thermald:system/bin/thermald \\
     vendor/htc/__DEVICE__/proprietary/wireless_modem:system/bin/wireless_modem \\
     vendor/htc/__DEVICE__/proprietary/wireless_modem:system/xbin/wireless_modem \\
     vendor/htc/__DEVICE__/proprietary/libaudioalsa.so:/system/lib/libaudioalsa.so \\
@@ -173,6 +174,11 @@ PRODUCT_COPY_FILES += \\
     vendor/htc/__DEVICE__/proprietary/sound8x60:/system/bin/sound8x60 \\
     vendor/htc/__DEVICE__/proprietary/3D_calibration:/system/bin/3D_calibration \\
     vendor/htc/__DEVICE__/proprietary/3D_calibration_main:/system/bin/3D_calibration_main
+
+#    vendor/htc/__DEVICE__/proprietary/htc_ebdlogd:/system/bin/htc_ebdlogd \\
+#    vendor/htc/__DEVICE__/proprietary/mpdecision:/system/bin/mpdecision \\
+#    vendor/htc/__DEVICE__/proprietary/thermald:system/bin/thermald \\
+
 EOF
 
 ./setup-makefiles.sh
